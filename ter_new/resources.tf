@@ -33,6 +33,8 @@ resource "azurerm_app_service" "Webapp" {
 
   app_settings = {
     "key" = "env_test"
+    "APPINSIGHTS_INSTRUMENTATIONKEY"      = azurerm_application_insights.APPins.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING" = azurerm_application_insights.APPins.connection_string
   }
 
   connection_string {
@@ -40,6 +42,12 @@ resource "azurerm_app_service" "Webapp" {
     type = "SQLServer"
     value = "Server = tcp:azurerm_sql_server.SQLserver.fully_qualified_domain_name Database = azurerm_sql_database.DBSQL.name; User ID=azurerm_sql_server.SQLserver.administrator_login;Password=azurerm_sql_server.SQLserver.administrator_login_password;Trusted_Connection=False;Encrypt=True;"
   }
+
+  #connection_string {
+  #  name = "WEBapp"
+  #  type = "app"
+  #  value = ""
+  #}
 }
 
 
