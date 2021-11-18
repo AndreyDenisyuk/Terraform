@@ -32,7 +32,7 @@ resource "azurerm_app_service" "Webapp" {
   }
 
   app_settings = {
-    "key" = "value"
+    "key" = "env_test"
   }
 
   connection_string {
