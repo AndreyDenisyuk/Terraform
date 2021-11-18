@@ -41,8 +41,8 @@ resource "azurerm_app_service" "Webapp" {
   connection_string {
     name = "Database"
     type = "SQLServer"
-    value = "Server = tcp:azurerm_sql_server.SQLserver.fully_qualified_domain_name Database = azurerm_sql_database.DBSQL.name; User ID=azurerm_sql_server.SQLserver.administrator_login;Password=azurerm_sql_server.SQLserver.administrator_login_password;Trusted_Connection=False;Encrypt=True;"
-  }
+    value = "Server=tcp:sql-serv-adv.database.windows.net,1433;Initial Catalog=DBSQLADV;Persist Security Info=False;User ID=azurerm_sql_server.SQLserver.administrator_login;Password=azurerm_sql_server.SQLserver.administrator_login_password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  }  
 
   #connection_string {
   #  name = "WEBapp"
