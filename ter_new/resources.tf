@@ -35,6 +35,7 @@ resource "azurerm_app_service" "Webapp" {
     "key" = "env_test"
     "APPINSIGHTS_INSTRUMENTATIONKEY"      = azurerm_application_insights.APPins.instrumentation_key
     "APPLICATIONINSIGHTS_CONNECTION_STRING" = azurerm_application_insights.APPins.connection_string
+    "ASPNETCORE_ENVIRONMENT" = Development
   }
 
   connection_string {
