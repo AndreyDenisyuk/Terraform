@@ -66,6 +66,14 @@ resource "azurerm_sql_server" "SQLserver" {
   ]
 }
 
+resource "azurerm_sql_firewall_rule" "firewallrule" {
+  name                         = var.name_fire_rule
+  resource_group_name          = var.name_rg
+  server_name = azurerm_sql_server.SQLserver.name
+  start_ip_address = "0.0.0.0"
+  end_ip_address = "0.0.0.0"
+}
+
 ### SA
 resource "azurerm_storage_account" "SA" {
   name                     = var.name_sa

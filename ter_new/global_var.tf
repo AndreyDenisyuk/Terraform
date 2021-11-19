@@ -52,6 +52,11 @@ variable name_applic_type {
   description = "name application type"
 }
 
+variable name_fire_rule {
+  default     = "rule1"
+  description = "firewall rule"
+}
+
 
 
 
